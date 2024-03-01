@@ -1,21 +1,46 @@
-// Get a reference to the #add-employees-btn element
-const addEmployeesBtn = document.querySelector('#add-employees-btn');
-
 // Collect employee data
+// TODO: Get user input to create and return an array of employee objects
+// My instructor Dan wrote this comment:  MUST RETURN ARRAY OF EMPLOYEE DATA
+
+const employeesArray = [];
 const collectEmployees = function() {
-  // TODO: Get user input to create and return an array of employee objects
+  let addEmployee = true;
+  while (addEmployee) {
+    const employeeData = {
+      firstName: prompt(`Please enter employee's first name`),
+      lastName: prompt(`Please enter employee's last name`),
+      salary: parseFloat(prompt(`Please enter employee's salary`))
+    };
+    // For if the user enters a negative number or letters, prompts them to re-enter the amount
+    while (isNaN(employeeData.salary) || employeeData.salary <= 0) {
+      alert(`Please enter a valid number`);
+      employeeData.salary = parseFloat(prompt(`Please enter employee's salary`));
+    }
+    // This adds the collected data to the array
+    employeesArray.push(employeeData);
+    // This portion is for allowing data to be entered for multiple employees
+    const addMore = confirm("Would you like to add another?");
+    if (!addMore) {
+      addEmployee = false;
+    }
+  }
+  return employeesArray;
 }
 
 // Display the average salary
 const displayAverageSalary = function(employeesArray) {
   // TODO: Calculate and display the average salary
+  // My instructor Dan wrote this comment:  use a for loop to go through all the objects
+  // My instructor Dan wrote this comment:  get salaries from objects
 }
 
 // Select a random employee
 const getRandomEmployee = function(employeesArray) {
   // TODO: Select and display a random employee
+  // My instructor Dan wrote this comment: don't forget: Math.floor(Math.random()*# of employees)
 }
 
+collectEmployees();
 /*
   ====================
   STARTER CODE
