@@ -1,3 +1,5 @@
+// Get a reference to the #add-employees-btn element
+const addEmployeesBtn = document.querySelector('#add-employees-btn');
 // Collect employee data
 // TODO: Get user input to create and return an array of employee objects
 // My instructor Dan wrote this comment:  MUST RETURN ARRAY OF EMPLOYEE DATA
@@ -23,9 +25,14 @@ const collectEmployees = function() {
     if (!addMore) {
       addEmployee = false;
     }
+    return employeesArray;
   }
-  return employeesArray;
 }
+
+// QUESTIONS FOR CLASS
+// WHY IS THE BUTTON BROKEN?
+// HOW CAN I TEST TO SEE IF THE DATA IS BEING PROPERLY ADDED TO THE ARRAY
+// WHY DOE THE DATA COLLECTED NOT SHOW UP ON THE CHART
 
 // Display the average salary
 const displayAverageSalary = function(employeesArray) {
